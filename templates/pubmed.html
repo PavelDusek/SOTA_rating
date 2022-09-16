@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html>
+	<head>
+<style>
+body {
+	display: flex;
+	background: linen;
+	
+}
+
+.prev, .next {
+	font-size: 50px;
+	background: wheat;
+	padding: 1%;
+	margin: 1%;
+}
+
+.prev a, .next a {
+	text-decoration: none;
+}
+
+.rating a {
+	text-decoration: none;
+}
+
+</style>
+	</head>
+	<body>
+		{% if prev_article > -1 %}
+		<div class='prev'>
+			<a href="/{{user}}/{{prev_article}}">←</a>
+		</div>
+		{% endif %}
+		<article>
+			<p>Hodnotí: {{user}}, studie {{id}} z {{n}}, <a href='/{{user}}/results'>všechny výsledky</a></p>
+			<h2>{{journal}}</h2>
+			<h1>{{title}}</h1>
+			<p><a href="http://doi.org/{{doi}}">doi</a> | <a href="https://pubmed.ncbi.nlm.nih.gov/{{pubmedid}}">pubmed</a></p>
+			<div class="rating">
+				<div class="impact">
+					<h3>Robustnost a impakt sdělení</h3>
+					<p>Je to studie s velkým impaktem, praxi měnící, o které by měli účastníci kongresu vědět?</p>
+					<p>Impakt: {{impact}}</p>
+					<div class="rating-stars">
+						{% if impact == 0 %}
+						<a href='/{{user}}/{{id}}?i=0'><strong>ne</strong></a>&nbsp;
+						{% else %}
+						<a href='/{{user}}/{{id}}?i=0'>ne</a>&nbsp;
+						{% endif %}
+
+						{% if impact >= 1 %}
+						<a href='/{{user}}/{{id}}?i=1'>★</a>&nbsp;
+						{% else %}
+						<a href='/{{user}}/{{id}}?i=1'>☆</a>&nbsp;
+						{% endif %}
+
+						{% if impact >= 2 %}
+						<a href='/{{user}}/{{id}}?i=2'>★</a>&nbsp;
+						{% else %}
+						<a href='/{{user}}/{{id}}?i=2'>☆</a>&nbsp;
+						{% endif %}
+
+						{% if impact >= 3 %}
+						<a href='/{{user}}/{{id}}?i=3'>★</a>&nbsp;
+						{% else %}
+						<a href='/{{user}}/{{id}}?i=3'>☆</a>&nbsp;
+						{% endif %}
+
+						{% if impact >= 4 %}
+						<a href='/{{user}}/{{id}}?i=4'>★</a>&nbsp;
+						{% else %}
+						<a href='/{{user}}/{{id}}?i=4'>☆</a>&nbsp;
+						{% endif %}
+
+						{% if impact >= 5 %}
+						<a href='/{{user}}/{{id}}?i=5'>★</a>&nbsp;
+						{% else %}
+						<a href='/{{user}}/{{id}}?i=5'>☆</a>&nbsp;
+						{% endif %}
+
+						{% if impact >= 6 %}
+						<a href='/{{user}}/{{id}}?i=6'>★</a>&nbsp;
+						{% else %}
+						<a href='/{{user}}/{{id}}?i=6'>☆</a>&nbsp;
+						{% endif %}
+
+						{% if impact >= 7 %}
+						<a href='/{{user}}/{{id}}?i=7'>★</a>&nbsp;
+						{% else %}
+						<a href='/{{user}}/{{id}}?i=7'>☆</a>&nbsp;
+						{% endif %}
+
+						{% if impact >= 8 %}
+						<a href='/{{user}}/{{id}}?i=8'>★</a>&nbsp;
+						{% else %}
+						<a href='/{{user}}/{{id}}?i=8'>☆</a>&nbsp;
+						{% endif %}
+
+						{% if impact >= 9 %}
+						<a href='/{{user}}/{{id}}?i=9'>★</a>&nbsp;
+						{% else %}
+						<a href='/{{user}}/{{id}}?i=9'>☆</a>&nbsp;
+						{% endif %}
+
+						{% if impact == 10 %}
+						<a href='/{{user}}/{{id}}?i=10'><strong>ano</strong></a>&nbsp;
+						{% else %}
+						<a href='/{{user}}/{{id}}?i=10'>ano</a>&nbsp;
+						{% endif %}
+					</div>
+				</div>
+				<div class="originality">
+					<h3>Originalita a inovativnost myšlenky</h3>
+					<p>Je to studie s výborným originálním nápadem – pro osvěžení?</p>
+					<p>Originalita: {{orig}}</p>
+					<div class="rating-stars">
+						{% if orig == 0 %}
+						<a href='/{{user}}/{{id}}?o=0'><strong>ne</strong></a>&nbsp;
+						{% else %}
+						<a href='/{{user}}/{{id}}?o=0'>ne</a>&nbsp;
+						{% endif %}
+
+						{% if orig >= 1 %}
+						<a href='/{{user}}/{{id}}?o=1'>★</a>&nbsp;
+						{% else %}
+						<a href='/{{user}}/{{id}}?o=1'>☆</a>&nbsp;
+						{% endif %}
+
+						{% if orig >= 2 %}
+						<a href='/{{user}}/{{id}}?o=2'>★</a>&nbsp;
+						{% else %}
+						<a href='/{{user}}/{{id}}?o=2'>☆</a>&nbsp;
+						{% endif %}
+
+						{% if orig >= 3 %}
+						<a href='/{{user}}/{{id}}?o=3'>★</a>&nbsp;
+						{% else %}
+						<a href='/{{user}}/{{id}}?o=3'>☆</a>&nbsp;
+						{% endif %}
+
+						{% if orig >= 4 %}
+						<a href='/{{user}}/{{id}}?o=4'>★</a>&nbsp;
+						{% else %}
+						<a href='/{{user}}/{{id}}?o=4'>☆</a>&nbsp;
+						{% endif %}
+
+						{% if orig >= 5 %}
+						<a href='/{{user}}/{{id}}?o=5'>★</a>&nbsp;
+						{% else %}
+						<a href='/{{user}}/{{id}}?o=5'>☆</a>&nbsp;
+						{% endif %}
+
+						{% if orig >= 6 %}
+						<a href='/{{user}}/{{id}}?o=6'>★</a>&nbsp;
+						{% else %}
+						<a href='/{{user}}/{{id}}?o=6'>☆</a>&nbsp;
+						{% endif %}
+
+						{% if orig >= 7 %}
+						<a href='/{{user}}/{{id}}?o=7'>★</a>&nbsp;
+						{% else %}
+						<a href='/{{user}}/{{id}}?o=7'>☆</a>&nbsp;
+						{% endif %}
+
+						{% if orig >= 8 %}
+						<a href='/{{user}}/{{id}}?o=8'>★</a>&nbsp;
+						{% else %}
+						<a href='/{{user}}/{{id}}?o=8'>☆</a>&nbsp;
+						{% endif %}
+
+						{% if orig >= 9 %}
+						<a href='/{{user}}/{{id}}?o=9'>★</a>&nbsp;
+						{% else %}
+						<a href='/{{user}}/{{id}}?o=9'>☆</a>&nbsp;
+						{% endif %}
+
+						{% if orig == 10 %}
+						<a href='/{{user}}/{{id}}?o=10'><strong>ano</strong></a>&nbsp;
+						{% else %}
+						<a href='/{{user}}/{{id}}?o=10'>ano</a>&nbsp;
+						{% endif %}
+					</div>
+				</div>
+
+				{{abstract|safe}}
+			</div>
+		</article>
+		{% if next_article < n %}
+		<div class='next'>
+			<a href="/{{user}}/{{next_article}}">→</a>
+		</div>
+		{% endif %}
+	</body>
+</html>

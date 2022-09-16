@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+	<head>
+<style>
+table, th, td {
+	border: solid black 1px;
+	border-collapse: collapse;
+}
+
+</style>
+	</head>
+	<body>
+		<h1>{{user}} results</h1>
+		<table>
+			<tr>
+				<th>ID</th>
+				<th>title</th>
+				<th>journal</th>
+				<th>Pubmed ID</th>
+				<th>DOI</th>
+				<th>impact</th>
+				<th>originality</th>
+			</tr>
+			{% for row in df %}
+			<tr>
+				<td><a href="/{{user}}/{{row['id']}}">{{row['id']}}</td>
+				<td>{{row['title']}}</td>
+				<td>{{row['journal']}}</td>
+				<td><a href="https://pubmed.ncbi.nlm.nih.gov/{{row['pubmed_id']}}">{{row['pubmed_id']}}</a></td>
+				<td><a href="http://doi.org/{{row['doi']}}">{{row['doi']}}</a></td>
+				<td>{{row['impact']}}</td>
+				<td>{{row['originality']}}</td>
+			</tr>
+			{% endfor %}
+		</table>
+	</body>
+</html>
